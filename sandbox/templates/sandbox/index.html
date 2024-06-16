@@ -9,6 +9,15 @@
 </head>
 <body>
     <h1>Hello World From INDEX.HTML</h1>
-    <h1>The name of the project is {{data.name}} and its age is {{data.age}} </h1>
+    {% comment %} <h1>The name of the project is {{data.name}} and its age is {{data.age}} </h1> {% endcomment %}
+    
+    {% if foods %}
+        <p> Food Is Detected! (Showing the info by using tags!) </p>
+        <ul>
+            {% for food in foods %}
+                <li> {{ food }} </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
 </body>
 </html>

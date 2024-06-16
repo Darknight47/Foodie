@@ -9,8 +9,12 @@ def helloWorld(request):
 
 def index(request):
     # A view for dynamically calling the index.html
-    diction = {"name": "Foodie", "age": 12}
-    context = {"data": diction}
+    pageInfo = {"name": "Foodie", "age": 12}
+    foods = ['Pizza', 'Sallad', 'Pasta', 'Hamburger', 'Rice']
+    context = {
+        "pageInfo": pageInfo,
+        "foods": foods}
+    
     return render(
         request, 
         "sandbox/index.html", 
