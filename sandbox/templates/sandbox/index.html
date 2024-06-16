@@ -1,16 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta name="description" content="Foodie Web Application">
-    <meta name="keywords" content="HTML, CSS, JavaScript and Django">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Foodie</title>
-</head>
-<body>
-    <h1>Hello World From INDEX.HTML</h1>
-    {% comment %} <h1>The name of the project is {{data.name}} and its age is {{data.age}} </h1> {% endcomment %}
-    
+{% extends "sandbox/base.html" %}
+{% block content %}
+    {% comment %} <h1>The name of the project is {{data.name}} and its age is {{data.age}} </h1> {% endcomment %}   
     {% if foods %}
         <p> Food Is Detected! (Showing the info by using tags!) </p>
         <ul>
@@ -18,6 +8,7 @@
                 <li> {{ food }} </li>
             {% endfor %}
         </ul>
+    {% else %}
+        <p> No Foods Found (the keyword 'foods' not found)</p>
     {% endif %}
-</body>
-</html>
+{% endblock content %}
