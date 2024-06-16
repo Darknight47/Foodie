@@ -9,4 +9,4 @@ def helloWorld(request):
 
 def index(request):
     # A view for dynamically calling the index.html
-    return render(request, "index.html")
+    return render(request, "sandbox/index.html")
