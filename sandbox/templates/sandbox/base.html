@@ -6,10 +6,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Foodie</title>
+    <style>
+        * {
+            margin: 0;
+            box-sizing: border-box;
+        }
+        nav ul {
+            background-color: greenyellow;
+            list-style: none;
+            display: flex;
+            padding: 15px;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        nav ul li {
+            color: white;
+            background-color: red;
+            display: block;
+            padding: 10px;
+        }
+    </style>
 </head>
 <body>
+    <nav>
+        <ul>
+            <li> Home </li>
+            <li> Recipie </li>
+            <li> Contact Us </li>
+        </ul>
+    </nav>
     <div id="main_container"> 
-        <h1> Welcome To Foodie </h1>
         {% block content %}    
         {% endblock content %}
     </div>
