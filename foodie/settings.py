@@ -34,6 +34,8 @@ INSTALLED_APPS = [
     # Updating now the settings, to know that there is a new app in the project
     # MY APPS (name of the app below)
     "sandbox",
+    # Second app (foodie_app)
+    "foodie_app",
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
