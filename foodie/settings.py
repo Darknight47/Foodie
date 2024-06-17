@@ -33,9 +33,10 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     # Updating now the settings, to know that there is a new app in the project
     # MY APPS (name of the app below)
-    "sandbox",
-    # Second app (foodie_app)
-    "foodie_app",
+    "sandbox", # First app (sandbox)
+    "foodie_app", # Second app (foodie_app)
+
+    # Default apps
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
