@@ -1,14 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta name="description" content="Foodie Web Application">
-    <meta name="keywords" content="HTML, CSS, JavaScript and Django">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Foodie</title>
-</head>
-<body>
-    <h1>Welcome To Foodie App</h1>
-    <h2>ENJOY</h2>
-</body>
-</html>
+{% extends "base.html" %}
+{% block pageContent %}
+    {% comment %} <h1>The name of the project is {{data.name}} and its age is {{data.age}} </h1> {% endcomment %}   
+    Hello From Foodie App index.html
+{% endblock pageContent %}
