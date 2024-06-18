@@ -1,7 +1,7 @@
-from django.http import HttpRequest
+from django.http import HttpResponse
 from django.shortcuts import render
 
 # Create your views here.
 
 def index(request):
-    return HttpRequest("Hello From Recipe!")
+    return HttpResponse("Hello From Recipe!")
