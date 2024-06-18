@@ -23,5 +23,7 @@ urlpatterns = [
     # "appName/"
     path( "sandbox/", include("sandbox.urls")),
     # Url to the foodie_app
-    path("foodie", include("foodie_app.urls"))
+    path("foodie", include("foodie_app.urls")),
+    # Url to the Recipes
+    path("recipes/", include("recipes.urls"))
 ]
