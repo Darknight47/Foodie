@@ -12,5 +12,13 @@ def index(request):
     recipes = Recipe.objects.exclude(name__contains = "Pot") #Excluding from the query.
     # __ is the DJango ORM syntax. It allows to stand relationship and filter between on fields of related models.
     # The name "name", "category" must be exact the same as the current model.
-    print(recipes)
+    
+    # Chaining the queries.
+    orderedRecipes = (
+        Recipe.objects.filter(category__name__icontains = "pizza")
+        .exclude(name__icontains = "mar")
+        .order_by("-date_added") # Descending Order "-", without it ascending order.
+    )
+
+    print(orderedRecipes)
     return HttpResponse("Hello From Recipe!")
