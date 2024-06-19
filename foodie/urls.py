@@ -25,5 +25,7 @@ urlpatterns = [
     # Url to the foodie_app
     path("foodie", include("foodie_app.urls")),
     # Url to the Recipes
-    path("recipes/", include("recipes.urls"))
+    path("recipes/", include("recipes.urls")),
+    # Url to the Comments
+    path("comments/", include("comments.urls"))
 ]
