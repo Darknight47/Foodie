@@ -1,6 +1,8 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from . models import Recipe
+from django.db.models import Sum, Count
+from django.db.models import Q # Complex Queries
 
 # Create your views here.
 
@@ -20,5 +22,16 @@ def index(request):
         .order_by("-date_added") # Descending Order "-", without it ascending order.
     )
 
+    # Two first objects
+    twoFirstRecipes = Recipe.objects.all()[:2]
+
+    # Aggregating objects
+    amountOfRecipes = Recipe.objects.aggregate(Count("name")) #Count("NAME OF A FIELD")
+
+    specialRecipe = Recipe.objects.filter(Q(name__startswith="M") | Q(description__contains="salt")) # | OR
     print(orderedRecipes)
-    return HttpResponse("Hello From Recipe!")
+    print(amountOfRecipes)
+    print(specialRecipe)
+
+
+    return render(request, "recipes/index.html")
