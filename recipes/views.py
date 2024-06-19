@@ -36,6 +36,6 @@ def index(request):
     """
     
     recipes = Recipe.objects.all() # Getting all the recipes
-    context = {"recipes": recipes}
+    context = {"recipes": recipes} # key: recipes, the key is going to be called in the index.html
 
     return render(request, "recipes/index.html", context=context)
