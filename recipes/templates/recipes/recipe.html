@@ -3,5 +3,13 @@
     {% comment %} <h1>The name of the project is {{data.name}} and its age is {{data.age}} </h1> {% endcomment %}   
     <div>
         <h3> {{ recipe.name }} </h3>
+        <i> Category </i>
+        <h5> {{ recipe.category }} </h5>
+        <i> Descriptions </i>
+        <p> {{ recipe.description }} </p>
+        <i> Ingredients </i>
+        <p> {{ recipe.ingredients }} </p>
+        <i> Directions </i>
+        <p> {{ recipe.directions }} </p>
     </div>
 {% endblock pageContent %}

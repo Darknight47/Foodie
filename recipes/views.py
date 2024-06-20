@@ -40,7 +40,7 @@ def index(request):
 
     return render(request, "recipes/index.html", context=context)
 
-def recipe(request, recipe_id):
+def recipeView(request, recipe_id):
     recipe = Recipe.objects.get(id=recipe_id)
     context = {"recipe": recipe}
     return render(request, "recipes/recipe.html", context=context)
