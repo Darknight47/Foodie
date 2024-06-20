@@ -21,9 +21,10 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     # After creating the first function and path in the first app, we are updating now the project about the changes in the app.
     # "appName/"
-    path( "", include("sandbox.urls")),
     # Url to the foodie_app
-    path("foodie", include("foodie_app.urls")),
+    path("", include("foodie_app.urls")),
+    # Url to the sandbox app
+    path( "sandbox/", include("sandbox.urls")),
     # Url to the Recipes
     path("recipes/", include("recipes.urls")),
     # Url to the Comments
