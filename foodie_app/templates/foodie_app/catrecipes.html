@@ -1,11 +1,14 @@
 {% extends "base.html" %}
 {% block pageContent %}
     {% comment %} <h1>The name of the project is {{data.name}} and its age is {{data.age}} </h1> {% endcomment %}   
-    <h1> WELCOME </h1>
-    <h3> Categories </h3>
+    <h3> Recipes under {{ category }}</h3>
     <div> 
-        {% for category in categories %}
-            <a href=''> {{ category }} </a>
+        {% for catRec in catRecipes %}
+            <div>
+                <h5> {{ catRec.name }} </h5>
+                <p> {{ catRec.description }} </p>
+                {% comment %} <a href=''> {{ catRec }} </a> {% endcomment %}
+            </div>         
             {% comment %} No need for the category.name because the Category model returns the name. {% endcomment %}
         {% endfor %}
     </div>
