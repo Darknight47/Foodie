@@ -5,7 +5,7 @@
     <h3> Categories </h3>
     <div> 
         {% for category in categories %}
-            <a href=''> {{ category }} </a>
+            <a href='{% url "foodie_app:cat_recipes" category.id %}'> {{ category }} </a>
             {% comment %} No need for the category.name because the Category model returns the name. {% endcomment %}
         {% endfor %}
     </div>
