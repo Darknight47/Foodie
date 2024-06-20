@@ -42,5 +42,5 @@ def index(request):
 
 def recipe(request, recipe_id):
     recipe = Recipe.objects.get(id=recipe_id)
-    
-    return render(request, "recipes/recipe.html")
+    context = {"recipe": recipe}
+    return render(request, "recipes/recipe.html", context=context)
