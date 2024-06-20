@@ -39,3 +39,8 @@ def index(request):
     context = {"recipes": recipes} # key: recipes, the key is going to be called in the index.html
 
     return render(request, "recipes/index.html", context=context)
+
+def recipe(request, recipe_id):
+    recipe = Recipe.objects.get(id=recipe_id)
+    
+    return render(request, "recipes/recipe.html")
