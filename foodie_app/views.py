@@ -1,4 +1,6 @@
 from django.shortcuts import render
+
+from foodie_app.forms import CategoryForm
 from . models import Category
 from recipes.models import Recipe
 
@@ -18,3 +20,8 @@ def catRecipes(request, category_id):
                'category': category}
     
     return render(request, "foodie_app/catrecipes.html", context=context)
+
+def add_category(request):
+    form = CategoryForm()
+    context = {"form": form}
+    return render(request, "foodie_app/add_category.html", context)
