@@ -2,9 +2,12 @@
 {% block pageContent %}
     {% comment %} <h1>The name of the project is {{data.name}} and its age is {{data.age}} </h1> {% endcomment %}   
     <h3> Add Category </h3>
-    <div> 
-        <form>
+    <div>
+        {% comment %} The form is going to be shows as paragraph, a paragraph has display of block  {% endcomment %}
+        <form method="post">
             {{ form.as_p }}
+            <button> Submit </button>
         </form>
+        {% comment %} REMOVE FORM ELEMENT IF WE ARE NOT GOING TO HAVE MORE ELEMENTS INSIDE THE DIV {% endcomment %}
     </div>
 {% endblock pageContent %}
