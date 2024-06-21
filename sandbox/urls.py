@@ -14,5 +14,7 @@ urlpatterns = [
 
     path("specific/", views.SpecificRecipeView.as_view(), name="specific_recipes"),
 
-    path("feedback/", views.feedback, name="feedback")
+    path("feedback/", views.feedback, name="feedback"),
+
+    path("thankyou/", views.thank_you, name="thankYou")
 ]

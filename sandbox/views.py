@@ -1,7 +1,7 @@
 from typing import Any
 from django.db.models.query import QuerySet
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.views import View
 from django.views.generic import ListView
 
@@ -33,13 +33,16 @@ def feedback(request):
         form = FeedbackForm(request.POST)
         if(form.is_valid()):
             print(form.cleaned_data)
-
+            return redirect("sandbox:thankYou") #thankYou is the name of the path (in the urls.py) to thank_you view
     else:
         form = FeedbackForm()
         context = {"form": form}
         return render(request, "sandbox/feedback_form.html", context=context)
-    pass
 
+
+
+def thank_you(request):
+    return HttpResponse("Thanks You for your feedback")
 
 
 # Class Based View (much better for reuseability) (A Generic Class)
