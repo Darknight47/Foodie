@@ -20,3 +20,6 @@ class FeedbackForm(forms.Form):
         if("@gmail.com" not in emailInput):
             raise forms.ValidationError("Please Your Gmail")
         return emailInput
+    
+    def __str__(self):
+        return self.name # For showing the name in the database instead of "Feedback one"

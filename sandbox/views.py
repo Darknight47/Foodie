@@ -7,6 +7,7 @@ from django.views.generic import ListView
 
 from recipes.models import Recipe
 from sandbox.forms import FeedbackForm
+from sandbox.models import Feedback
 
 # Create your views here.
 
@@ -33,6 +34,17 @@ def feedback(request):
         form = FeedbackForm(request.POST)
         if(form.is_valid()):
             print(form.cleaned_data)
+            name = form.cleaned_data['name']
+            email = form.cleaned_data['email']
+            feedback = form.cleaned_data['feedback']
+            satisfaction = form.cleaned_data['satisfaction']
+            
+            Feedback.objects.create( #create and saving a new object.
+                name=name,
+                email=email,
+                feedback=feedback,
+                satisfaction=satisfaction
+            )
             return redirect("sandbox:thankYou") #thankYou is the name of the path (in the urls.py) to thank_you view
     else:
         form = FeedbackForm()
