@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 {% block content %}
+    <p> SandboxHTML </p>
     {% comment %} <h1>The name of the project is {{data.name}} and its age is {{data.age}} </h1> {% endcomment %}   
+    
     {% if foods %}
         <p> Food Is Detected! (Showing the info by using tags!) </p>
         <ul>
@@ -10,5 +12,17 @@
         </ul>
     {% else %}
         <p> No Foods Found (the keyword 'foods' not found)</p>
+    {% endif %} 
+    <p> HEJ FROM SANDBOX INDEX </p>
+    {% if recipes %} 
+        <p>context_object_name from views.py "recipes"</p>
+        <ul>
+            {% for rec in recipes %}
+                <li> {{ rec.name }} </li>
+            {% endfor %}
+        </ul>    
+    {% else %}
+        <p> No Recipes Found </p>
     {% endif %}
+
 {% endblock content %}
