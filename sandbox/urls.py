@@ -12,5 +12,7 @@ urlpatterns = [
     
     path("foods/", views.RecipeListView.as_view() ),
 
-    path("specific/", views.SpecificRecipeView.as_view(), name="specific_recipes")
+    path("specific/", views.SpecificRecipeView.as_view(), name="specific_recipes"),
+
+    path("feedback/", views.feedback, name="feedback")
 ]

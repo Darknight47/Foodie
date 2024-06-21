@@ -27,6 +27,11 @@ def index(request):
         "sandbox/sandbox.html", 
         context=context )
 
+def feedback(request):
+    pass
+
+
+
 # Class Based View (much better for reuseability) (A Generic Class)
 class RecipeListView(ListView):
     model = Recipe
