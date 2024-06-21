@@ -3,6 +3,7 @@
     {% comment %} <h1>The name of the project is {{data.name}} and its age is {{data.age}} </h1> {% endcomment %}   
     <h1> WELCOME </h1>
     <h3> Categories </h3>
+    <a href="{% url 'foodie_app:add_category' %}"> ADD CATEGORY </a>
     <div> 
         {% for category in categories %}
             <a href='{% url "foodie_app:cat_recipes" category.id %}'> {{ category }} </a>

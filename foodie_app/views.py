@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 from foodie_app.forms import CategoryForm
 from . models import Category
@@ -26,7 +26,12 @@ def add_category(request):
     print(request)
     if(request.method == "POST"):
         form = CategoryForm(request.POST)
-        return render(request, "foodie_app/index.html")
+        if(form.is_valid()):
+            form.save()
+            #return render(request, "foodie_app/index.html")
+            return redirect("foodie_app:index") #Redirect to the first path of this app.
+        else:
+            return render(request, "foodie_app/add_category.html", context)
     else:
         form = CategoryForm()
         context = {"form": form}
