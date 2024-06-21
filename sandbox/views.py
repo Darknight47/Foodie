@@ -6,6 +6,7 @@ from django.views import View
 from django.views.generic import ListView
 
 from recipes.models import Recipe
+from sandbox.forms import FeedbackForm
 
 # Create your views here.
 
@@ -28,6 +29,15 @@ def index(request):
         context=context )
 
 def feedback(request):
+    if(request.method == "POST"):
+        form = FeedbackForm(request.POST)
+        if(form.is_valid()):
+            print(form.cleaned_data)
+
+    else:
+        form = FeedbackForm()
+        context = {"form": form}
+        return render(request, "sandbox/feedback_form.html", context=context)
     pass
 
 
