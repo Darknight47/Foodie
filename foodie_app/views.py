@@ -22,6 +22,12 @@ def catRecipes(request, category_id):
     return render(request, "foodie_app/catrecipes.html", context=context)
 
 def add_category(request):
-    form = CategoryForm()
-    context = {"form": form}
-    return render(request, "foodie_app/add_category.html", context)
+    #request by default is get
+    print(request)
+    if(request.method == "POST"):
+        form = CategoryForm(request.POST)
+        return render(request, "foodie_app/index.html")
+    else:
+        form = CategoryForm()
+        context = {"form": form}
+        return render(request, "foodie_app/add_category.html", context)
