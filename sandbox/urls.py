@@ -10,5 +10,7 @@ urlpatterns = [
     # When we go to the sandbox/ then we need to add "index" to make it "sandbox/index" to execute sandbox.index
     path("index", views.index),
     
-    path("foods/", views.RecipeListView.as_view() )
+    path("foods/", views.RecipeListView.as_view() ),
+
+    path("specific/", views.SpecificRecipeView.as_view(), name="specific_recipes")
 ]
