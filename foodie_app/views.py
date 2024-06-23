@@ -42,7 +42,7 @@ def add_recipe(request):
         form = RecipeForm(request.POST)
         if(form.is_valid()):
             form.save()
-            return redirect("foodie_app:index")
+            return redirect("recipes:recipe_index")
     else:
         form = RecipeForm()
     return render(request, "foodie_app/add_recipe.html", {"form": form}) 
