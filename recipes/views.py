@@ -1,5 +1,8 @@
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, redirect, render
+
+from foodie_app.forms import RecipeForm
+from foodie_app.models import Category
 from . models import Recipe
 from django.db.models import Sum, Count
 from django.db.models import Q # Complex Queries
@@ -44,3 +47,20 @@ def recipeView(request, recipe_id):
     recipe = Recipe.objects.get(id=recipe_id)
     context = {"recipe": recipe}
     return render(request, "recipes/recipe.html", context=context)
+
+# Adding a recipe when we already are inside a specific category.
+def add_recipe(request, category_id=None):
+    category = None
+    if(category_id):
+        #category = Category.objects.get(id=category_id)
+        category = get_object_or_404(Category, id=category_id) #A safer way to get an object from the DB!
+        form = RecipeForm(request.POST or None, initial={"category": category})
+    else:
+        form = RecipeForm(request.POST or None)
+    
+    if(request.method == "POST" and form.is_valid()):
+        new_recipe = form.save()
+        return redirect("foodie_app:cat_recipes", category_id=new_recipe.category.id)
+    
+    context = {"form": form, "category": category}
+    return render(request, "recipes/add_recipe.html", context=context)

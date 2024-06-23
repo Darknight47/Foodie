@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import get_object_or_404, render, redirect
 
 from foodie_app.forms import CategoryForm, RecipeForm
 from . models import Category
@@ -37,12 +37,29 @@ def add_category(request):
         context = {"form": form}
         return render(request, "foodie_app/add_category.html", context)
     
-def add_recipe(request):
-    if(request.method == "POST"):
-        form = RecipeForm(request.POST)
-        if(form.is_valid()):
-            form.save()
-            return redirect("recipes:recipe_index")
+# def add_recipe(request):
+#     if(request.method == "POST"):
+#         form = RecipeForm(request.POST)
+#         if(form.is_valid()):
+#             form.save()
+#             return redirect("recipes:recipe_index")
+#     else:
+#         form = RecipeForm()
+#     return render(request, "foodie_app/add_recipe.html", {"form": form}) 
+
+# Adding a recipe when we already are inside a specific category.
+def add_recipe(request, category_id=None):
+    category = None
+    if(category_id):
+        #category = Category.objects.get(id=category_id)
+        category = get_object_or_404(Category, id=category_id) #A safer way to get an object from the DB!
+        form = RecipeForm(request.POST or None, initial={"category": category})
     else:
-        form = RecipeForm()
-    return render(request, "foodie_app/add_recipe.html", {"form": form}) 
+        form = RecipeForm(request.POST or None)
+    
+    if(request.method == "POST" and form.is_valid()):
+        new_recipe = form.save()
+        return redirect("foodie_app:cat_recipes", category_id=new_recipe.category.id)
+    
+    context = {"form": form, "category": category}
+    return render(request, "foodie_app/add_recipe.html", context=context)

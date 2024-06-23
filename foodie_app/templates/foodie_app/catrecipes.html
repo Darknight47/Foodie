@@ -2,6 +2,7 @@
 {% block pageContent %}
     {% comment %} <h1>The name of the project is {{data.name}} and its age is {{data.age}} </h1> {% endcomment %}   
     <h3> Recipes under {{ category }}</h3>
+    <a href='{% url "foodie_app:add_recipe_with_cat" category_id=category.id %}'> Add A New Recipe For This Category </a>
     <div> 
         {% for catRec in catRecipes %}
             <div>
