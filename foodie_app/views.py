@@ -47,7 +47,7 @@ def add_category(request):
 #         form = RecipeForm()
 #     return render(request, "foodie_app/add_recipe.html", {"form": form}) 
 
-# Adding a recipe when we already are inside a specific category.
+# Adding a recipe when we already are inside a specific category or adding one from the home page link.
 def add_recipe(request, category_id=None):
     category = None
     if(category_id):
