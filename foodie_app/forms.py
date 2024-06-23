@@ -2,6 +2,7 @@
 from django import forms
 
 from foodie_app.models import Category
+from recipes.models import Recipe
 
 
 # A form for creating Category from UI.
@@ -13,3 +14,8 @@ class CategoryForm(forms.ModelForm):
             labels = {
                   'name': 'Category Name'
             }
+
+class RecipeForm(forms.ModelForm):
+      class Meta:
+            model = Recipe
+            fields = ["name", "description", "ingredients", "directions", "category"]

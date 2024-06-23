@@ -5,5 +5,6 @@ app_name = "foodie_app"
 urlpatterns = [
     path("", views.index, name="index"),
     path("recipes/<int:category_id>/", views.catRecipes, name="cat_recipes"),
-    path("addCategory/", views.add_category, name="add_category")
+    path("addCategory/", views.add_category, name="add_category"),
+    path("add-recipe/", views.add_recipe, name="add_recipe")
 ]
