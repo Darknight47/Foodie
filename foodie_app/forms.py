@@ -14,8 +14,15 @@ class CategoryForm(forms.ModelForm):
             labels = {
                   'name': 'Category Name'
             }
+            widgets ={
+                  "name": forms.TextInput(attrs={"placeholder": "Category Name"})
+            }
 
 class RecipeForm(forms.ModelForm):
       class Meta:
             model = Recipe
             fields = ["name", "description", "ingredients", "directions", "category"]
+            widgets = {
+                  "name": forms.TextInput(attrs={"placeholder": "Your Name", "class": "recipe_name"}),
+                  "description": forms.Textarea(attrs={"placeholder": "Description of the recipe", "class": "recipe_desc"}),
+            }
